@@ -1,0 +1,47 @@
+.vet-superstore-tools-wrap {
+    background: #fff;
+    border-radius: 8px;
+    padding: 32px 32px 24px 32px;
+    max-width: 700px;
+    margin-top: 30px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+.vet-superstore-tools-wrap h1 {
+    display: flex;
+    align-items: center;
+    font-size: 2em;
+    margin-bottom: 24px;
+}
+.vet-superstore-tools-wrap .dashicons {
+    font-size: 1.3em;
+    margin-right: 10px;
+    color: #2271b1;
+}
+.vet-superstore-tools-buttons {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+.vet-superstore-tools-buttons .button {
+    font-size: 1.1em;
+    padding: 12px 24px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+}
+.vet-btn-price { background: #2271b1; color: #fff; }
+.vet-btn-stock { background: #46b450; color: #fff; }
+.vet-btn-master { background: #f7b500; color: #222; }
+.vet-btn-discontinued { background: #d63638; color: #fff; }
+.vet-superstore-tools-buttons .button:hover {
+    filter: brightness(0.95);
+}
+.vet-superstore-tools-output {
+    margin-top: 24px;
+}
+.vet-superstore-tools-output .notice {
+    margin-bottom: 16px;
+}
