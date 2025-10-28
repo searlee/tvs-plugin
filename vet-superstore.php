@@ -22,7 +22,7 @@ add_action('admin_menu', function() {
 // Enqueue custom styles for the admin page
 add_action('admin_enqueue_scripts', function($hook) {
     if ($hook === 'toplevel_page_vet-superstore-tools') {
-        wp_enqueue_style('vet-superstore-tools-style', plugin_dir_url(__FILE__) . 'css\vet-superstore-tools.css');
+        wp_enqueue_style('vet-superstore-tools-style', plugin_dir_url(__FILE__) . 'css/vet-superstore-tools.css');
     }
 });
 
@@ -48,7 +48,7 @@ function vet_superstore_tools_page() {
                 }
 
                 if (isset($_POST['run_split_products'])) {
-                    vet_superstore_spit_products();
+                    vet_superstore_split_products();
                 }
             }
             ?>
@@ -60,30 +60,32 @@ function vet_superstore_tools_page() {
 
 function vet_superstore_health_check() {
     $output = '';
-    $root = dirname( __FILE__, 4 ) ;
-    $path = $root. '/tasks/mwi/health-check.php';
-    echo '<div class="notice notice-info"><p>'.$path.'</p></div>';
+    $base = dirname( __FILE__, 4 ) ;
+    $path = $base. '/tasks/mwi/health-check.php';
     if (file_exists($path)) {
         ob_start();
-        include($path);
+        include $path;
         $output = ob_get_clean();
         echo '<div class="notice notice-success"><pre>' . esc_html($output) . '</pre></div>';
-    } else {
+    } else 
+    {
         echo '<div class="notice notice-error"><p>health-check.php not found.</p></div>';
     }
 }
 
 function vet_superstore_split_products() {
     $output = '';
-    $root = dirname( __FILE__, 4 ) ;
-    $path = $root. '/tasks/mwi/health-check.php';
-    echo '<div class="notice notice-info"><p>'.$path.'</p></div>';
+    $base = dirname( __FILE__, 4 ) ;
+    $path = $base. '/tasks/mwi/split-products.php';
+
+    echo $path;
+
     if (file_exists($path)) {
         ob_start();
-        include($path);
+        require_once($path);
         $output = ob_get_clean();
         echo '<div class="notice notice-success"><pre>' . esc_html($output) . '</pre></div>';
     } else {
-        echo '<div class="notice notice-error"><p>health-check.php not found.</p></div>';
+        echo '<div class="notice notice-error"><p>split-products.php not found.</p></div>';
     }
 }
